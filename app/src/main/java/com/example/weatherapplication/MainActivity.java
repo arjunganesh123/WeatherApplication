@@ -41,5 +41,6 @@ public class MainActivity extends AppCompatActivity {
         weatherModelArrayList=new ArrayList<>();
         weatherAdapter=new WeatherAdapter(this,weatherModelArrayList);
         weather.setAdapter(weatherAdapter);
+        s
     }
 }
