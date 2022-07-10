@@ -8,7 +8,7 @@
 
     <ImageView
         android:id="@+id/iim"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="130dp"
         android:layout_marginTop="100dp"
         android:layout_width="130dp"
         android:layout_height="wrap_content"

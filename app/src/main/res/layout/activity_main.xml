@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@color/Black_shade_1" />
+            android:src="@drawable/morning3" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
