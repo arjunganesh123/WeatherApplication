@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/arjun/StudioProjects/WeatherApplication/app/src/main/res/drawable/backgroundsplash.xml" value="0.20104166666666667" />
         <entry key="..\:/Users/arjun/StudioProjects/WeatherApplication/app/src/main/res/drawable/card_view.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/arjun/StudioProjects/WeatherApplication/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/arjun/StudioProjects/WeatherApplication/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/Users/arjun/StudioProjects/WeatherApplication/app/src/main/res/layout/weatheritems.xml" value="0.4466666666666667" />
       </map>
     </option>
