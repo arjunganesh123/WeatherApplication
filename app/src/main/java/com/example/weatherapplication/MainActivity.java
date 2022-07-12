@@ -153,7 +153,7 @@ public class MainActivity extends AppCompatActivity {
                       Picasso.get().load("https:".concat(conditionicon)).into(climateicon);
                       condition.setText(conditionn);
                       if(isday==1){
-                          backtheme.setImageResource(R.drawable.morningimg);
+                          backtheme.setImageResource(R.drawable.morningview);
 //                          Picasso.get().load("https://www.4freephotos.com/medium/batch/Morning-sky1536.jpg").into(backtheme);
                       }
                       else {
