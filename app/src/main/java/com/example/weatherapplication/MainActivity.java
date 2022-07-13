@@ -2,6 +2,7 @@ package com.example.weatherapplication;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -52,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
     private LocationManager locationManager;
     private int Permissioncode=1;
     private String Citynameee;
+    private Button button;
+    private String passcity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_main);
+        button=findViewById(R.id.button);
         homeRL = findViewById(R.id.RLHome);
         londingPB = findViewById(R.id.PBLoading);
         cityname = findViewById(R.id.CityName);
@@ -92,10 +97,18 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     cityname.setText(city);
+                    passcity=city;
                     getweatherinfo(city);
                 }
             }
         });
+    }
+    public void getcity(View v){
+        Intent i=new Intent(MainActivity.this,History.class);
+        Bundle b=new Bundle();
+        b.putString("cname",passcity);
+        i.putExtras(b);
+        startActivity(i);
     }
 
     @Override
@@ -137,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
     private void getweatherinfo(String citynamee){
         String url="https://api.weatherapi.com/v1/forecast.json?key=dca892fc2d534382a1461857211207&q="+citynamee+"&days=1&aqi=yes&alerts=yes";
         cityname.setText(citynamee);
+        passcity=citynamee;
         RequestQueue requestQueue= Volley.newRequestQueue(MainActivity.this);
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url, null, new Response.Listener<JSONObject>() {
             @Override
