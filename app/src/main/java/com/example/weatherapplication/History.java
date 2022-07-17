@@ -1,6 +1,9 @@
 package com.example.weatherapplication;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -33,6 +36,7 @@ public class History extends AppCompatActivity {
     private RelativeLayout r1,r2,r3,r4,r5;
     String cname;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().setTitle("Weather History");
@@ -92,11 +96,11 @@ public class History extends AppCompatActivity {
         Bundle b=new Bundle();
         b=getIntent().getExtras();
         cname=b.getString("cname");
-        gethistoryinfo(cname,"2022-07-12",1);
-        gethistoryinfo(cname,"2022-07-11",2);
-        gethistoryinfo(cname,"2022-07-10",3);
-        gethistoryinfo(cname,"2022-07-09",4);
-        gethistoryinfo(cname,"2022-07-08",5);
+        gethistoryinfo(cname,java.time.LocalDate.now().minusDays(1).toString(),1);
+        gethistoryinfo(cname,java.time.LocalDate.now().minusDays(2).toString(),2);
+        gethistoryinfo(cname,java.time.LocalDate.now().minusDays(3).toString(),3);
+        gethistoryinfo(cname,java.time.LocalDate.now().minusDays(4).toString(),4);
+        gethistoryinfo(cname,java.time.LocalDate.now().minusDays(5).toString(),5);
     }
     private void gethistoryinfo(String citynamme,String daate,int x){
         String url="https://api.weatherapi.com/v1/history.json?key=dca892fc2d534382a1461857211207&q="+citynamme+"&dt="+daate;

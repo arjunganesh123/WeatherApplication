@@ -96,8 +96,8 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,"Please enter city name",Toast.LENGTH_SHORT);
                 }
                 else{
-                    cityname.setText(city);
-                    passcity=city;
+//                    cityname.setText(city);
+//                    passcity=city;
                     getweatherinfo(city);
                 }
             }
@@ -149,7 +149,6 @@ public class MainActivity extends AppCompatActivity {
     }
     private void getweatherinfo(String citynamee){
         String url="https://api.weatherapi.com/v1/forecast.json?key=dca892fc2d534382a1461857211207&q="+citynamee+"&days=1&aqi=yes&alerts=yes";
-        cityname.setText(citynamee);
         passcity=citynamee;
         RequestQueue requestQueue= Volley.newRequestQueue(MainActivity.this);
         JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.GET,url, null, new Response.Listener<JSONObject>() {
@@ -159,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
                   homeRL.setVisibility(View.VISIBLE);
                   weatherModelArrayList.clear();
                   try{
+                      cityname.setText(citynamee);
                       String temperaturee=response.getJSONObject("current").getString("temp_c");
                       temperature.setText(temperaturee+"°c");
                       int isday=response.getJSONObject("current").getInt("is_day");
