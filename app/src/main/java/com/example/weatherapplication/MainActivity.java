@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -44,6 +45,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private RelativeLayout homeRL;
+    private EditText getdate;
     private ProgressBar londingPB;
     private TextView cityname,temperature,condition;
     private RecyclerView weather;
@@ -64,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         setContentView(R.layout.activity_main);
+        getdate=findViewById(R.id.editdate);
         button=findViewById(R.id.button);
         homeRL = findViewById(R.id.RLHome);
         londingPB = findViewById(R.id.PBLoading);
@@ -106,6 +109,15 @@ public class MainActivity extends AppCompatActivity {
     public void getcity(View v){
         Intent i=new Intent(MainActivity.this,History.class);
         Bundle b=new Bundle();
+        b.putString("cname",passcity);
+        i.putExtras(b);
+        startActivity(i);
+    }
+    public void weatheratdate(View v){
+        String date=getdate.getText().toString();
+        Intent i=new Intent(MainActivity.this,MainActivity2.class);
+        Bundle b=new Bundle();
+        b.putString("getdate",date);
         b.putString("cname",passcity);
         i.putExtras(b);
         startActivity(i);

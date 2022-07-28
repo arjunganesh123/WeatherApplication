@@ -140,8 +140,27 @@
             android:id="@+id/button"
             android:elevation="20dp"
             android:onClick="getcity"
-            android:layout_alignParentBottom="true"
+            android:layout_above="@+id/editdate"
             android:text="Weather History"
+            tools:ignore="OnClick" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editdate"
+            android:layout_above="@id/button1"
+            android:hint="Enter Date in formate yyyy-mm-dd"
+            android:textColor="@color/Black_shade_1"
+            android:textAlignment="center"
+            android:gravity="center_horizontal" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/button1"
+            android:elevation="20dp"
+            android:onClick="weatheratdate"
+            android:layout_alignParentBottom="true"
+            android:text="Weather At Date"
             tools:ignore="OnClick" />
     </RelativeLayout>
 
